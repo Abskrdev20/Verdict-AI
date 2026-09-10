@@ -32,7 +32,7 @@ def render_header():
         
 
 import streamlit as st
-from config import LOGO_PATH, GEMINI_API_KEY
+from .config import LOGO_PATH, GEMINI_API_KEY
 
 def render_sidebar(training_status):
     with st.sidebar:
