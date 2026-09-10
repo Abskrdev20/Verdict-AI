@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image,ImageOps
 from .config import LOGO_PATH, DEMO_IMAGE_PATH, DEMO_STUDENT_TEXT, DEMO_RUBRIC_TEXT, GEMINI_API_KEY
-from ocr_service import extract_handwriting
+from .ocr_service import extract_handwriting
 from .utils import parse_questions, plot_score_chart
 from .ml_engine import extract_features
 import re
