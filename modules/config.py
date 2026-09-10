@@ -8,9 +8,9 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # File Paths
-DATASET_PATH = "Training_Dataset/train.csv"
-LOGO_PATH = "logo.png"
-DEMO_IMAGE_PATH = "demo.jpg"
+DATASET_PATH = "train_dataset/dataset.csv"
+LOGO_PATH = "assets/logo.png"
+DEMO_IMAGE_PATH = "assets/demo.jpg"
 
 # Demo Mode Static Text
 DEMO_STUDENT_TEXT = (

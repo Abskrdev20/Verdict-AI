@@ -15,8 +15,7 @@ warnings.filterwarnings("ignore")
 # 2. UI Setup
 st.set_page_config(
     page_title="Verdict.ai | Assignment Grader", 
-    layout="centered", 
-    page_icon="📝"
+    layout="centered",
 )
 apply_custom_css()
 

@@ -2,7 +2,7 @@
 
 import streamlit as st
 import numpy as np
-from PIL import Image
+from PIL import Image,ImageOps
 from config import LOGO_PATH, DEMO_IMAGE_PATH, DEMO_STUDENT_TEXT, DEMO_RUBRIC_TEXT, GEMINI_API_KEY
 from ocr_service import extract_handwriting
 from utils import parse_questions, plot_score_chart
@@ -77,9 +77,17 @@ def render_ocr_section(demo_mode):
     if uploaded_file or demo_mode:
         c_img, c_txt = st.columns([1, 1])
         with c_img:
-            if demo_mode: st.image(DEMO_IMAGE_PATH, width=320, caption="Demo Mode")
-            elif uploaded_file: st.image(Image.open(uploaded_file), width=350)
+            if demo_mode: 
+                demo_img = Image.open(DEMO_IMAGE_PATH)
+                demo_img = ImageOps.exif_transpose(demo_img)
+                st.image(demo_img, width=350, caption="Demo Mode")
                 
+            elif uploaded_file: 
+                uploaded_img = Image.open(uploaded_file)
+                uploaded_img = ImageOps.exif_transpose(uploaded_img)
+                st.image(uploaded_img, width=350)
+
+
         with c_txt:
             if not demo_mode and st.button("Run OCR Extraction", width="stretch") and uploaded_file:
                 with st.spinner("Extracting via Gemini..."):
