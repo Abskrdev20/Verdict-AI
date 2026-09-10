@@ -3,12 +3,12 @@ import sys
 import warnings
 import streamlit as st
 
-# 1. Path Configuration: Bind the 'modules' folder so internal imports resolve seamlessly
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'modules')))
+# 1. Path Configuration: Bind the root folder so 'modules' resolves correctly as a package
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from utils import apply_custom_css
-from ml_engine import train_model_from_dataset
-from ui_components import render_header, render_sidebar, render_ocr_section, render_evaluation_section
+from modules.utils import apply_custom_css
+from modules.ml_engine import train_model_from_dataset
+from modules.ui_components import render_header, render_sidebar, render_ocr_section, render_evaluation_section
 
 warnings.filterwarnings("ignore")
 
